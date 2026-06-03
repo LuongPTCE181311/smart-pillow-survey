@@ -14,9 +14,7 @@ html.dark-theme,
 html.dark-theme body {
   background: #0f172a;
   color: #ffffff;
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* ===== LIGHT MODE ===== */
@@ -24,9 +22,7 @@ html.light-theme,
 html.light-theme body {
   background: #f8fafc;
   color: #1e293b;
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Default body style */

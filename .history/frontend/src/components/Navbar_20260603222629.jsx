@@ -1,4 +1,4 @@
-import { Sun, Moon } from "lucide-react";
+import { Sun, Moon } from 'lucide-react';
 import logo from "../assets/logo.jpg";
 import useTheme from "../hooks/useTheme";
 
@@ -30,7 +30,11 @@ export default function Navbar() {
       >
         {/* Logo */}
         <div className="flex items-center gap-3">
-          <img src={logo} alt="logo" className="w-10 h-10" />
+          <img
+            src={logo}
+            alt="logo"
+            className="w-10 h-10"
+          />
 
           <span
             className="
@@ -43,6 +47,7 @@ export default function Navbar() {
           >
             Smart Pillow
           </span>
+
         </div>
 
         {/* Theme Toggle Button */}
@@ -72,6 +77,7 @@ export default function Navbar() {
             <Moon className="w-5 h-5 text-blue-300" />
           )}
         </button>
+
       </div>
     </nav>
   );

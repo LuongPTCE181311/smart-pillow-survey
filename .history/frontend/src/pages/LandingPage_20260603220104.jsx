@@ -1,0 +1,29 @@
+import Navbar from "../components/Navbar";
+import AnimatedBackground from "../components/AnimatedBackground";
+import HeroSection from "../components/HeroSection";
+import VideoSection from "../components/VideoSection";
+import ProblemSection from "../components/ProblemSection";
+import SolutionSection from "../components/SolutionSection";
+import FeaturesDashboard from "../components/FeaturesDashboard";
+
+export default function LandingPage({ theme, toggleTheme }) {
+  return (
+    <div
+      className="
+      relative
+      min-h-screen
+      text-white
+      bg-[#020617]
+      "
+    >
+      <AnimatedBackground />
+
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
+      <HeroSection />
+      <VideoSection />
+      <ProblemSection />
+      <SolutionSection />
+      <FeaturesDashboard />
+    </div>
+  );
+}
