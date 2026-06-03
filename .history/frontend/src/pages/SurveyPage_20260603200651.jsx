@@ -23,22 +23,22 @@ export default function SurveyPage() {
   };
 
   const prevStep = () => {
-    setStep((prev) => prev - 1);
+  setStep((prev) => prev - 1);
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
 
   const nextStep = () => {
-    setStep((prev) => prev + 1);
+  setStep((prev) => prev + 1);
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
 
   const sectionKeys = ["A", "B", "C", "D", "E"];
 

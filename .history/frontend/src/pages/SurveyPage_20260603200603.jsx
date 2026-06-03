@@ -22,23 +22,7 @@ export default function SurveyPage() {
     }));
   };
 
-  const prevStep = () => {
-    setStep((prev) => prev - 1);
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
-  const nextStep = () => {
-    setStep((prev) => prev + 1);
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  
 
   const sectionKeys = ["A", "B", "C", "D", "E"];
 
@@ -147,7 +131,7 @@ export default function SurveyPage() {
         <div className="flex justify-between mt-10">
           <button
             disabled={step === 1}
-            onClick={prevStep}
+            onClick={() => setStep(step - 1)}
             className="
               px-6
               py-3
@@ -169,7 +153,7 @@ export default function SurveyPage() {
 
           <button
             disabled={step === totalSteps}
-            onClick={nextStep}
+            onClick={() => setStep(step + 1)}
             className="
               px-6
               py-3

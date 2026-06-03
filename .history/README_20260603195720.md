@@ -1,0 +1,207 @@
+# Smart Pillow Survey
+
+A full-stack web application for conducting smart pillow surveys with a modern React frontend and Express backend.
+
+## 📋 Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Running the Application](#running-the-application)
+- [Configuration](#configuration)
+- [API Documentation](#api-documentation)
+- [Available Scripts](#available-scripts)
+- [Contributing](#contributing)
+- [License](#license)
+
+## 🎯 Overview
+
+Smart Pillow Survey is a comprehensive survey application designed to collect user feedback and data about smart pillow products. The application features a responsive frontend built with React and a robust backend API built with Express and MongoDB.
+
+## ✨ Features
+
+### Frontend
+
+- **Modern UI/UX**: Built with React 19 and Tailwind CSS
+- **Smooth Animations**: Integrated with Framer Motion for engaging interactions
+- **Form Management**: Powered by React Hook Form for efficient form handling
+- **Toast Notifications**: Real-time user feedback with React Hot Toast
+- **Confetti Effects**: Celebratory animations with React Confetti
+- **Counter Animations**: Dynamic number displays with React CountUp
+- **Responsive Design**: Mobile-friendly interface with TailwindCSS
+- **Client Routing**: Seamless navigation with React Router DOM
+- **HTTP Client**: Axios for efficient API communication
+
+### Backend
+
+- **RESTful API**: Express.js for building scalable APIs
+- **Database**: MongoDB with Mongoose ODM
+- **CORS Support**: Configured for cross-origin requests
+- **Environment Management**: Dotenv for secure configuration
+- **Development**: Nodemon for hot-reload development experience
+
+## 🛠 Tech Stack
+
+### Frontend
+
+- **React**: ^19.2.6
+- **Vite**: ^8.0.12 (Build tool)
+- **TailwindCSS**: ^4.3.0 (Styling)
+- **Framer Motion**: ^12.40.0 (Animations)
+- **React Router DOM**: ^7.16.0 (Routing)
+- **Axios**: ^1.17.0 (HTTP client)
+- **React Hook Form**: ^7.77.0 (Form management)
+- **React Hot Toast**: ^2.6.0 (Notifications)
+- **React Confetti**: ^6.4.0 (Visual effects)
+- **React CountUp**: ^6.5.3 (Counter animations)
+- **Lucide React**: ^1.17.0 (Icons)
+
+### Backend
+
+- **Node.js**: Latest LTS recommended
+- **Express**: ^5.2.1 (Web framework)
+- **MongoDB**: Latest (Database)
+- **Mongoose**: ^9.6.3 (MongoDB ODM)
+- **CORS**: ^2.8.6 (Cross-origin support)
+- **Dotenv**: ^17.4.2 (Environment variables)
+- **Nodemon**: ^3.1.14 (Development)
+
+## 📁 Project Structure
+
+smart-pillow-survey/ ├── frontend/ # React frontend application │ ├── src/ │ │ ├── components/ # React components │ │ ├── pages/ # Page components │ │ ├── App.jsx # Main App component │ │ └── main.jsx # Entry point │ ├── package.json │ └── vite.config.js ├── backend/ # Express backend application │ ├── server.js # Main server file │ ├── routes/ # API routes │ ├── models/ # MongoDB models │ ├── controllers/ # Route controllers │ ├── package.json │ └── .env # Environment variables (not in repo) └── README.md # This file
+
+Code
+
+## 📦 Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- **Node.js**: v16 or higher
+- **npm**: v7 or higher (comes with Node.js)
+- **MongoDB**: v4.4 or higher (local or cloud instance)
+- **Git**: For version control
+
+## 🚀 Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/LuongPTCE181311/smart-pillow-survey.git
+cd smart-pillow-survey
+2. Backend Setup
+bash
+cd backend
+
+# Install dependencies
+npm install
+
+# Create .env file with your configuration
+cp .env.example .env
+
+# Update .env with your MongoDB connection string and other variables
+3. Frontend Setup
+bash
+cd ../frontend
+
+# Install dependencies
+npm install
+▶️ Running the Application
+Development Mode
+Terminal 1 - Backend Server
+bash
+cd backend
+npm run dev
+The backend will start on http://localhost:5000 (or your configured port).
+
+Terminal 2 - Frontend Development Server
+bash
+cd frontend
+npm run dev
+The frontend will start on http://localhost:5173 (default Vite port).
+
+Production Mode
+Build Frontend
+bash
+cd frontend
+npm run build
+Build and Run Backend
+bash
+cd backend
+npm start
+⚙️ Configuration
+Backend Environment Variables
+Create a .env file in the backend directory:
+
+env
+# Server Configuration
+PORT=5000
+NODE_ENV=development
+
+# Database Configuration
+MONGODB_URI=mongodb://localhost:27017/smart-pillow-survey
+
+# CORS Configuration
+CORS_ORIGIN=http://localhost:5173
+
+# Other configurations as needed
+Frontend API Configuration
+Update the API base URL in your frontend code (typically in an axios configuration file):
+
+JavaScript
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+📚 API Documentation
+Base URL
+Code
+http://localhost:5000/api
+Endpoints
+Document your API endpoints here. Example:
+
+Code
+GET    /api/surveys          - Get all surveys
+POST   /api/surveys          - Create a new survey
+GET    /api/surveys/:id      - Get survey by ID
+PUT    /api/surveys/:id      - Update survey
+DELETE /api/surveys/:id      - Delete survey
+📝 Available Scripts
+Frontend Scripts
+bash
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build locally
+npm run preview
+
+# Run ESLint
+npm run lint
+Backend Scripts
+bash
+# Start development server with hot-reload
+npm run dev
+
+# Run tests
+npm run test
+🤝 Contributing
+Contributions are welcome! Please follow these steps:
+
+Fork the repository
+Create a feature branch (git checkout -b feature/AmazingFeature)
+Commit your changes (git commit -m 'Add some AmazingFeature')
+Push to the branch (git push origin feature/AmazingFeature)
+Open a Pull Request
+Code Style
+Use ESLint for linting
+Follow the existing code structure
+Write meaningful commit messages
+Add comments for complex logic
+📄 License
+This project is licensed under the ISC License - see the LICENSE file for details.
+
+📧 Contact
+For any questions or support, please open an issue on the GitHub repository.
+```
