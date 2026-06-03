@@ -1,0 +1,2 @@
+setIsDark(dark);
+      applyTheme(dark);

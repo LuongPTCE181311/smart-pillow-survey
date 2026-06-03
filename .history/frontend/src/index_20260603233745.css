@@ -1,0 +1,60 @@
+@import "tailwindcss";
+@import "./theme-config.css";
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== DARK MODE (Mặc định - GIỮ NGUYÊN) ===== */
+:root {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-card: rgba(255, 255, 255, 0.05);
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1;
+  --text-slate: #94a3b8;
+  --border-primary: rgba(255, 255, 255, 0.1);
+  --accent-cyan: #06b6d4;
+  --accent-cyan-light: #22d3ee;
+  --text-muted: #64748b;
+}
+
+/* ===== LIGHT MODE (THAY ĐỔI) ===== */
+html.light-theme {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f7fa;
+  --bg-card: #f0f4f8;
+  --text-primary: #0a0e27;
+  --text-secondary: #475569;
+  --text-slate: #64748b;
+  --border-primary: #e2e8f0;
+  --accent-cyan: #0891b2;
+  --accent-cyan-light: #06b6d4;
+  --text-muted: #94a3b8;
+}
+
+/* ===== Apply Variables ===== */
+html,
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+body {
+  font-family: Inter, sans-serif;
+}
+
+/* Smooth transition */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}

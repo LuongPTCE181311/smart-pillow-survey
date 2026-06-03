@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== CSS VARIABLES - DARK MODE (Default) ===== */
+:root {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-card: rgba(255, 255, 255, 0.05);
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1;
+  --text-slate: #94a3b8;
+  --border-primary: rgba(255, 255, 255, 0.1);
+  --accent-cyan: #06b6d4;
+  --accent-cyan-light: #22d3ee;
+  --text-muted: #64748b;
+}
+
+/* ===== CSS VARIABLES - LIGHT MODE ===== */
+html.light-theme {
+  --bg-primary: #fafbfc; /* Thay từ #ffffff → #fafbfc (sáng hơn 1 chút) */
+  --bg-secondary: #f8fafc; /* Thay từ #f5f7fa → #f8fafc (sáng hơn) */
+  --bg-card: #f3f7fb;
+  --text-primary: #0a0e27;
+  --text-secondary: #475569;
+  --text-slate: #64748b;
+  --border-primary: #e2e8f0;
+  --accent-cyan: #0891b2;
+  --accent-cyan-light: #06b6d4;
+  --text-muted: #94a3b8;
+}
+
+/* ===== APPLY VARIABLES ===== */
+html,
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+body {
+  font-family: Inter, sans-serif;
+}
+
+/* Smooth transition */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* ===== CUSTOM THEME UTILITIES ===== */
+
+/* Text Colors */
+.text-primary {
+  color: var(--text-primary) !important;
+}
+
+.text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+.text-slate {
+  color: var(--text-slate) !important;
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+/* Background Colors */
+.bg-primary {
+  background-color: var(--bg-primary) !important;
+}
+
+.bg-secondary {
+  background-color: var(--bg-secondary) !important;
+}
+
+.bg-card {
+  background-color: var(--bg-card) !important;
+}
+
+/* Border Colors */
+.border-primary {
+  border-color: var(--border-primary) !important;
+}
+
+/* Accent Colors */
+.text-accent-cyan {
+  color: var(--accent-cyan) !important;
+}
+
+.text-accent-cyan-light {
+  color: var(--accent-cyan-light) !important;
+}
+
+.bg-accent-cyan-light {
+  background-color: rgba(6, 182, 212, 0.1);
+}
+
+html.light-theme .bg-accent-cyan-light {
+  background-color: rgba(8, 145, 178, 0.1);
+}
+
+/* Navbar */
+.navbar {
+  transition: all 0.3s ease;
+}
+
+html.dark-theme .navbar {
+  background-color: rgba(15, 23, 42, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+html.light-theme .navbar {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Placeholder text */
+html.light-theme textarea::placeholder,
+html.light-theme input::placeholder {
+  color: var(--text-slate);
+}
+
+html.dark-theme textarea::placeholder,
+html.dark-theme input::placeholder {
+  color: var(--text-secondary);
+}
