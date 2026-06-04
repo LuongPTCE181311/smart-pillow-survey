@@ -9,8 +9,6 @@ export default function AppRoutes() {
       <Route path="/" element={<LandingPage />} />
 
       <Route path="/survey" element={<SurveyPage />} />
-
-      <Route path="/thank-you" element={<ThankYouPage />} />
     </Routes>
   );
 }

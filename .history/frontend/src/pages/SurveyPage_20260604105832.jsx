@@ -87,7 +87,7 @@ export default function SurveyPage() {
       await api.post("/survey", payload);
       navigate("/thank-you");
     } catch (err) {
-      alert("Gửi khảo sát thất bại. Vui lòng thử lại.", err);
+      alert("Gửi khảo sát thất bại. Vui lòng thử lại.");
     } finally {
       setIsSubmitting(false);
     }

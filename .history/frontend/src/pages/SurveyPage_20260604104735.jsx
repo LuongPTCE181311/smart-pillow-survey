@@ -13,8 +13,7 @@ export default function SurveyPage() {
   const [answers, setAnswers] = useState({});
   const [errors, setErrors] = useState({});
   const totalSteps = surveySteps.length;
-  const navigate = useNavigate();
-  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const current = surveySteps[step - 1];
 
   const handleAnswer = (id, value) => {
@@ -59,39 +58,6 @@ export default function SurveyPage() {
 
   const currentQuestions = surveyQuestions[sectionKeys[step - 1]] || [];
 
-  const handleSubmit = async () => {
-    if (!validate()) return;
-
-    // Map answers theo từng section dựa vào ID câu hỏi
-    const sectionKeys = {
-      A: "sectionA",
-      B: "sectionB",
-      C: "sectionC",
-      D: "sectionD",
-      E: "sectionE",
-    };
-    const payload = {};
-
-    Object.entries(surveyQuestions).forEach(([key, questions]) => {
-      const sectionName = sectionKeys[key];
-      payload[sectionName] = {};
-      questions.forEach((q) => {
-        if (answers[q.id] !== undefined) {
-          payload[sectionName][q.id] = answers[q.id];
-        }
-      });
-    });
-
-    try {
-      setIsSubmitting(true);
-      await api.post("/survey", payload);
-      navigate("/thank-you");
-    } catch (err) {
-      alert("Gửi khảo sát thất bại. Vui lòng thử lại.", err);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
   return (
     <div
       className="
@@ -250,22 +216,11 @@ export default function SurveyPage() {
           >
             Quay lại
           </button>
-          {step === totalSteps ? (
-            <button
-              onClick={handleSubmit}
-              disabled={isSubmitting}
-              className="px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 disabled:opacity-50"
-              style={{
-                background: `linear-gradient(to right, #06b6d4, #3b82f6)`,
-                color: "#ffffff",
-              }}
-            >
-              {isSubmitting ? "Đang gửi..." : "Gửi khảo sát"}
-            </button>
-          ) : (
-            <button
-              onClick={nextStep}
-              className="
+
+          <button
+            disabled={step === totalSteps}
+            onClick={nextStep}
+            className="
               px-6
               py-3
               rounded-xl
@@ -274,14 +229,13 @@ export default function SurveyPage() {
               hover:scale-105
               disabled:opacity-30
             "
-              style={{
-                background: `linear-gradient(to right, ${getComputedStyle(document.documentElement).getPropertyValue("--accent-cyan")}, #3b82f6)`,
-                color: "#ffffff",
-              }}
-            >
-              Tiếp tục
-            </button>
-          )}
+            style={{
+              background: `linear-gradient(to right, ${getComputedStyle(document.documentElement).getPropertyValue("--accent-cyan")}, #3b82f6)`,
+              color: "#ffffff",
+            }}
+          >
+            Tiếp tục
+          </button>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 export default function QuestionCard({ question, value, onChange, error }) {
   return (
-    <div className="mb-8">
+    <div className="mb-10">
       <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-10 text-primary">
         {question.question}
       </h2>
@@ -103,7 +103,6 @@ export default function QuestionCard({ question, value, onChange, error }) {
             "
         />
       )}
-      {error && <p className="mt-2 text-sm text-red-400">{error}</p>}
     </div>
   );
 }

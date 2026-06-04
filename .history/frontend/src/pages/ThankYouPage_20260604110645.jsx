@@ -107,7 +107,7 @@ export default function ThankYouPage() {
           >
             {[
               { value: "5", label: "Phần khảo sát" },
-              { value: "33+", label: "Câu hỏi" },
+              { value: "35+", label: "Câu hỏi" },
               { value: "100%", label: "Hoàn thành" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">

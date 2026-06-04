@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
-import api from "../services/api";
+
 import ProgressBar from "../components/ProgressBar";
 import QuestionCard from "../components/QuestionCard";
 
@@ -11,10 +10,9 @@ import surveySteps from "../data/surveySteps";
 export default function SurveyPage() {
   const [step, setStep] = useState(1);
   const [answers, setAnswers] = useState({});
-  const [errors, setErrors] = useState({});
+
   const totalSteps = surveySteps.length;
-  const navigate = useNavigate();
-  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const current = surveySteps[step - 1];
 
   const handleAnswer = (id, value) => {
@@ -24,20 +22,21 @@ export default function SurveyPage() {
     }));
   };
 
-  const validate = () => {
-    const newErrors = {};
-    currentQuestions.forEach((q) => {
-      // Bỏ qua textarea (không bắt buộc)
-      if (q.type === "textarea") return;
+const validate = () => {
+  const newErrors = {};
+  currentQuestions.forEach((q) => {
+    // Bỏ qua textarea (không bắt buộc)
+    if (q.type === "textarea") return;
 
-      const val = answers[q.id];
-      if (!val || (Array.isArray(val) && val.length === 0)) {
-        newErrors[q.id] = "Vui lòng trả lời câu hỏi này";
-      }
-    });
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+    const val = answers[q.id];
+    if (!val || (Array.isArray(val) && val.length === 0)) {
+      newErrors[q.id] = "Vui lòng trả lời câu hỏi này";
+    }
+  });
+  setErrors(newErrors);
+  return Object.keys(newErrors).length === 0;
+};
+
 
   const prevStep = () => {
     setStep((prev) => prev - 1);
@@ -49,49 +48,18 @@ export default function SurveyPage() {
   };
 
   const nextStep = () => {
-    if (!validate()) return; // Dừng nếu có lỗi
-    setErrors({});
     setStep((prev) => prev + 1);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   const sectionKeys = ["A", "B", "C", "D", "E"];
 
   const currentQuestions = surveyQuestions[sectionKeys[step - 1]] || [];
 
-  const handleSubmit = async () => {
-    if (!validate()) return;
-
-    // Map answers theo từng section dựa vào ID câu hỏi
-    const sectionKeys = {
-      A: "sectionA",
-      B: "sectionB",
-      C: "sectionC",
-      D: "sectionD",
-      E: "sectionE",
-    };
-    const payload = {};
-
-    Object.entries(surveyQuestions).forEach(([key, questions]) => {
-      const sectionName = sectionKeys[key];
-      payload[sectionName] = {};
-      questions.forEach((q) => {
-        if (answers[q.id] !== undefined) {
-          payload[sectionName][q.id] = answers[q.id];
-        }
-      });
-    });
-
-    try {
-      setIsSubmitting(true);
-      await api.post("/survey", payload);
-      navigate("/thank-you");
-    } catch (err) {
-      alert("Gửi khảo sát thất bại. Vui lòng thử lại.", err);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
   return (
     <div
       className="
@@ -211,7 +179,6 @@ export default function SurveyPage() {
                 question={q}
                 value={answers[q.id]}
                 onChange={handleAnswer}
-                error={errors[q.id]}
               />
             ))}
           </div>
@@ -250,22 +217,11 @@ export default function SurveyPage() {
           >
             Quay lại
           </button>
-          {step === totalSteps ? (
-            <button
-              onClick={handleSubmit}
-              disabled={isSubmitting}
-              className="px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 disabled:opacity-50"
-              style={{
-                background: `linear-gradient(to right, #06b6d4, #3b82f6)`,
-                color: "#ffffff",
-              }}
-            >
-              {isSubmitting ? "Đang gửi..." : "Gửi khảo sát"}
-            </button>
-          ) : (
-            <button
-              onClick={nextStep}
-              className="
+
+          <button
+            disabled={step === totalSteps}
+            onClick={nextStep}
+            className="
               px-6
               py-3
               rounded-xl
@@ -274,14 +230,13 @@ export default function SurveyPage() {
               hover:scale-105
               disabled:opacity-30
             "
-              style={{
-                background: `linear-gradient(to right, ${getComputedStyle(document.documentElement).getPropertyValue("--accent-cyan")}, #3b82f6)`,
-                color: "#ffffff",
-              }}
-            >
-              Tiếp tục
-            </button>
-          )}
+            style={{
+              background: `linear-gradient(to right, ${getComputedStyle(document.documentElement).getPropertyValue("--accent-cyan")}, #3b82f6)`,
+              color: "#ffffff",
+            }}
+          >
+            Tiếp tục
+          </button>
         </div>
       </div>
     </div>

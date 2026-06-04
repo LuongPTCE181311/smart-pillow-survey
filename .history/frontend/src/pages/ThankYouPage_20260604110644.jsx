@@ -27,12 +27,7 @@ export default function ThankYouPage() {
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            transition={{
-              delay: 0.3,
-              type: "spring",
-              stiffness: 200,
-              damping: 15,
-            }}
+            transition={{ delay: 0.3, type: "spring", stiffness: 200, damping: 15 }}
             className="flex items-center justify-center mx-auto mb-8 w-24 h-24 rounded-full bg-accent-cyan-light"
             style={{ border: "2px solid var(--accent-cyan)" }}
           >
@@ -107,7 +102,7 @@ export default function ThankYouPage() {
           >
             {[
               { value: "5", label: "Phần khảo sát" },
-              { value: "33+", label: "Câu hỏi" },
+              { value: "35+", label: "Câu hỏi" },
               { value: "100%", label: "Hoàn thành" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
@@ -144,8 +139,9 @@ export default function ThankYouPage() {
           transition={{ delay: 1.1, duration: 0.5 }}
           className="mt-8 text-sm text-muted"
         >
-          Dự án <span className="text-accent-cyan font-medium">Respyn</span> —
-          Smart Pillow &amp; Health Monitor
+          Dự án{" "}
+          <span className="text-accent-cyan font-medium">Respyn</span> — Smart
+          Pillow &amp; Health Monitor
         </motion.p>
       </div>
     </div>

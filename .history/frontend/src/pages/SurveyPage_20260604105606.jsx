@@ -250,6 +250,7 @@ export default function SurveyPage() {
           >
             Quay lại
           </button>
+
           {step === totalSteps ? (
             <button
               onClick={handleSubmit}
@@ -262,23 +263,7 @@ export default function SurveyPage() {
             >
               {isSubmitting ? "Đang gửi..." : "Gửi khảo sát"}
             </button>
-          ) : (
-            <button
-              onClick={nextStep}
-              className="
-              px-6
-              py-3
-              rounded-xl
-              transition-all
-              duration-300
-              hover:scale-105
-              disabled:opacity-30
-            "
-              style={{
-                background: `linear-gradient(to right, ${getComputedStyle(document.documentElement).getPropertyValue("--accent-cyan")}, #3b82f6)`,
-                color: "#ffffff",
-              }}
-            >
+            <button onClick={nextStep} /* ... nút Tiếp tục như cũ ... */>
               Tiếp tục
             </button>
           )}

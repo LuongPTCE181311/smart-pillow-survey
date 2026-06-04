@@ -103,7 +103,6 @@ export default function QuestionCard({ question, value, onChange, error }) {
             "
         />
       )}
-      {error && <p className="mt-2 text-sm text-red-400">{error}</p>}
     </div>
   );
 }
