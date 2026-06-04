@@ -9,15 +9,14 @@ connectDB();
 
 const app = express();
 
-app.use(
-  cors({
-    origin: [
-      "http://localhost:5173",
-      "https://smart-pillow-survey.vercel.app",
-      "https://smart-pillow-survey-d65pu0223-luongptce181311s-projects.vercel.app",
-    ],
-  }),
-);
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://smart-pillow-survey.vercel.app",
+    "https://smart-pillow-survey-d65pu0223-luongptce181311s-projects.vercel.app",
+  ],
+}));
+
 
 app.use(express.json());
 
