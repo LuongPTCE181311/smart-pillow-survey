@@ -5,6 +5,10 @@ import SurveyPage from "../pages/SurveyPage";
 import AdminLoginPage from "../pages/AdminLoginPage";
 import AdminDashboardPage from "../pages/AdminDashboardPage";
 
+// Thêm trong <Routes>:
+<Route path="/admin" element={<AdminLoginPage />} />
+<Route path="/admin/dashboard" element={<AdminDashboardPage />} />
+
 export default function AppRoutes() {
   return (
     <Routes>
@@ -13,10 +17,6 @@ export default function AppRoutes() {
       <Route path="/survey" element={<SurveyPage />} />
 
       <Route path="/thank-you" element={<ThankYouPage />} />
-
-      <Route path="/admin" element={<AdminLoginPage />} />
-
-      <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
     </Routes>
   );
 }

@@ -13,9 +13,8 @@ export default function AppRoutes() {
       <Route path="/survey" element={<SurveyPage />} />
 
       <Route path="/thank-you" element={<ThankYouPage />} />
-
+      
       <Route path="/admin" element={<AdminLoginPage />} />
-
       <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
     </Routes>
   );

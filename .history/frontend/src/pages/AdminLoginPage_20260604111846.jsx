@@ -44,9 +44,7 @@ export default function AdminLoginPage() {
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div>
-            <label className="text-sm text-secondary mb-1 block">
-              Tài khoản
-            </label>
+            <label className="text-sm text-secondary mb-1 block">Tài khoản</label>
             <input
               type="text"
               value={form.username}
@@ -57,9 +55,7 @@ export default function AdminLoginPage() {
           </div>
 
           <div>
-            <label className="text-sm text-secondary mb-1 block">
-              Mật khẩu
-            </label>
+            <label className="text-sm text-secondary mb-1 block">Mật khẩu</label>
             <input
               type="password"
               value={form.password}
@@ -69,15 +65,14 @@ export default function AdminLoginPage() {
             />
           </div>
 
-          {error && <p className="text-sm text-red-400 text-center">{error}</p>}
+          {error && (
+            <p className="text-sm text-red-400 text-center">{error}</p>
+          )}
 
           <button
             type="submit"
             className="mt-2 w-full py-4 rounded-2xl text-white font-semibold text-lg"
-            style={{
-              background:
-                "linear-gradient(to right, var(--accent-cyan), #3b82f6)",
-            }}
+            style={{ background: "linear-gradient(to right, var(--accent-cyan), #3b82f6)" }}
           >
             Đăng nhập
           </button>
