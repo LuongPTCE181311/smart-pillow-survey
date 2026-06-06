@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import AnimatedBackground from "../components/AnimatedBackground";
 import HeroSection from "../components/HeroSection";
+import VideoSection from "../components/VideoSection";
 import ProblemSection from "../components/ProblemSection";
 import SolutionSection from "../components/SolutionSection";
 import FeaturesDashboard from "../components/FeaturesDashboard";
