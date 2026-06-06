@@ -5,7 +5,6 @@ import VideoSection from "../components/VideoSection";
 import ProblemSection from "../components/ProblemSection";
 import SolutionSection from "../components/SolutionSection";
 import FeaturesDashboard from "../components/FeaturesDashboard";
-import TeamSection from "../components/TeamSection";
 
 export default function LandingPage() {
   return (
