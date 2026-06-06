@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 
 const members = [
   {
@@ -46,10 +46,7 @@ export default function TeamSection() {
         <div className="text-center mb-16">
           <span
             className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase mb-4"
-            style={{
-              backgroundColor: "rgba(6,182,212,0.1)",
-              color: "var(--accent-cyan)",
-            }}
+            style={{ backgroundColor: "rgba(6,182,212,0.1)", color: "var(--accent-cyan)" }}
           >
             Đội ngũ phát triển
           </span>
@@ -78,19 +75,11 @@ export default function TeamSection() {
                   className="w-full h-full object-cover"
                 />
                 {/* Icon zoom khi hover */}
-                <div
-                  className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   style={{ background: "rgba(6,182,212,0.25)" }}
                 >
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                   >
                     <circle cx="11" cy="11" r="8" />
                     <line x1="21" y1="21" x2="16.65" y2="16.65" />
@@ -105,10 +94,7 @@ export default function TeamSection() {
                 <p className="text-white text-sm font-semibold leading-tight">
                   {member.name}
                 </p>
-                <p
-                  className="text-xs mt-1 font-mono"
-                  style={{ color: "var(--accent-cyan)" }}
-                >
+                <p className="text-xs mt-1 font-mono" style={{ color: "var(--accent-cyan)" }}>
                   {member.studentId}
                 </p>
               </div>
@@ -121,10 +107,7 @@ export default function TeamSection() {
       {selected && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-6"
-          style={{
-            backgroundColor: "rgba(0,0,0,0.8)",
-            backdropFilter: "blur(8px)",
-          }}
+          style={{ backgroundColor: "rgba(0,0,0,0.8)", backdropFilter: "blur(8px)" }}
           onClick={() => setSelected(null)}
         >
           <div
@@ -146,10 +129,7 @@ export default function TeamSection() {
             {/* Tên + MSSV */}
             <div className="text-center">
               <p className="text-white text-xl font-bold">{selected.name}</p>
-              <p
-                className="font-mono mt-1"
-                style={{ color: "var(--accent-cyan)" }}
-              >
+              <p className="font-mono mt-1" style={{ color: "var(--accent-cyan)" }}>
                 {selected.studentId}
               </p>
             </div>
