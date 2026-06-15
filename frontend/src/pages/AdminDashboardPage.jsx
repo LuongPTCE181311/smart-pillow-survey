@@ -68,6 +68,8 @@ function processQuestion(
 }
 
 function PieCard({ question, data }) {
+  const total = data ? data.reduce((sum, d) => sum + d.value, 0) : 0;
+
   if (!data || data.length === 0) {
     return (
       <div className="bg-card admin-card border border-primary rounded-3xl p-6">
@@ -78,7 +80,16 @@ function PieCard({ question, data }) {
   }
 
   return (
-    <div className="bg-card admin-card border border-primary rounded-3xl p-6 flex gap-8 items-center">
+    <div className="bg-card admin-card border border-primary rounded-3xl p-6">
+      {/* Badge tổng số phiếu */}
+      <span
+        className="inline-block text-xs font-bold px-3 py-1 rounded-full mb-4 text-white"
+        style={{ backgroundColor: "var(--accent-cyan)" }}
+      >
+        Tổng: {total} phiếu
+      </span>
+
+      <div className="flex gap-8 items-center">
       {/* Biểu đồ tròn - bên trái */}
       <div className="shrink-0" style={{ width: 220, height: 220 }}>
         <ResponsiveContainer width="100%" height="100%">
@@ -164,6 +175,7 @@ function PieCard({ question, data }) {
           ))}
         </div>
       </div>
+      </div>
     </div>
   );
 }
@@ -171,6 +183,14 @@ function PieCard({ question, data }) {
 function TextareaCard({ question, answers }) {
   return (
     <div className="bg-card admin-card border border-primary rounded-3xl p-6">
+      {/* Badge tổng số phiếu */}
+      <span
+        className="inline-block text-xs font-bold px-3 py-1 rounded-full mb-4 text-white"
+        style={{ backgroundColor: "var(--accent-cyan)" }}
+      >
+        Tổng: {answers.length} phiếu
+      </span>
+
       <p className="text-sm font-semibold text-primary mb-4">{question}</p>
       {answers.length === 0 ? (
         <p className="text-sm text-muted">Chưa có phản hồi</p>
